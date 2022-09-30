@@ -1,12 +1,12 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, invalid_use_of_protected_member, deprecated_member_use, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:list_ext/list_ext.dart';
 
 import 'package:simple_trading_strategy_tester/controller/list_model.dart';
-import 'package:simple_trading_strategy_tester/pages/widgets/trade.dart';
 
 class TradeController extends GetxController {
   var test = "".obs;
@@ -145,7 +145,7 @@ class TradeController extends GetxController {
       tradePercentageController_trade.clear();
       tradePercentage_trade.value = 0;
       tradeListScroll.animateTo(tradeListScroll.position.maxScrollExtent,
-          duration: Duration(milliseconds: 500), curve: Curves.ease);
+          duration: const Duration(milliseconds: 500), curve: Curves.ease);
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -163,7 +163,7 @@ class TradeController extends GetxController {
     try {
       if (tradeList.isNotEmpty) {
         for (var i = 0; i < tradeList.length; i++) {
-          print("ASDASDASDASDASDASDSADASD");
+          debugPrint("ASDASDASDASDASDASDSADASD");
           var initCap = initCap_info.value;
 
           var leverage = leverage_trade.value;
@@ -739,11 +739,56 @@ class TradeController extends GetxController {
     }
   }
 
+  final BannerAd listBanner = BannerAd(
+    adUnitId: BannerAd.testAdUnitId,
+    size: AdSize.banner,
+    request: const AdRequest(),
+    listener: const BannerAdListener(),
+  );
+
+  late InterstitialAd interstitialAd;
+  var adIsLoaded = false.obs;
+
+  Future loadInterstitialAd() async {
+    try {
+      InterstitialAd.load(
+        adUnitId: InterstitialAd.testAdUnitId,
+        request: const AdRequest(),
+        adLoadCallback: InterstitialAdLoadCallback(
+          onAdLoaded: (InterstitialAd ad) {
+            // Keep a reference to the ad so you can show it later.
+            interstitialAd = ad;
+            adIsLoaded.value = true;
+            debugPrint(
+                "ADS LOADED ADS LOADED ADS LOADED ADS LOADED ADS LOADED");
+            interstitialAd.fullScreenContentCallback =
+                FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
+              adIsLoaded.value = false;
+              interstitialAd.dispose();
+              Get.back();
+            }, onAdFailedToShowFullScreenContent: (ad, error) {
+              adIsLoaded.value = false;
+              interstitialAd.dispose();
+              Get.back();
+            });
+          },
+          onAdFailedToLoad: (LoadAdError error) {
+            debugPrint('InterstitialAd failed to load: $error');
+          },
+        ),
+      );
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
   @override
   void onInit() {
     saveStrategy();
     getSavedStrategy();
 
+    listBanner.load();
+    loadInterstitialAd();
     try {
       ever(tradeList, (_) {
         if (tradeList.isNotEmpty) {

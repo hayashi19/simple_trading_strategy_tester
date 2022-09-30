@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_formatter/money_formatter.dart';
 import 'package:simple_trading_strategy_tester/controller/controller.dart';
-import 'package:simple_trading_strategy_tester/pages/widgets/trade.dart';
 
 class PerformancePage extends StatelessWidget {
   const PerformancePage({
@@ -14,7 +13,6 @@ class PerformancePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TradeController controller = Get.put(TradeController());
     return Container(
       color: Colors.grey.shade800,
       child: ListView(

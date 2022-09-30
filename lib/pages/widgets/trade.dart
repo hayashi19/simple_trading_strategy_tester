@@ -10,10 +10,10 @@ class TradePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       controller: ScrollController(),
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       children: <Widget>[
-        StrategyTitle(),
-        SizedBox(height: 10),
+        const StrategyTitle(),
+        const SizedBox(height: 10),
         Row(
           children: const <Widget>[
             Expanded(child: TradingPair()),
@@ -24,7 +24,7 @@ class TradePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        InitialCap(),
+        const InitialCap(),
         const SizedBox(height: 10),
         Row(
           children: const <Widget>[
@@ -78,6 +78,7 @@ class StrategyTitle extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.strategyTitleController_info,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration.collapsed(
                 hintText: "your strategy name . . .",
               ),
@@ -110,6 +111,7 @@ class TradingPair extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.tradingPairController_info,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration.collapsed(
                 hintText: "pair xx/xx",
               ),
@@ -142,6 +144,7 @@ class Timeframe extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.timeFrameController_info,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration.collapsed(
                 hintText: "timeframe",
               ),
@@ -174,6 +177,7 @@ class StrategyDuration extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.durationController_info,
+              keyboardType: TextInputType.text,
               decoration: const InputDecoration.collapsed(
                 hintText: "duration",
               ),
@@ -206,6 +210,7 @@ class InitialCap extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.initCapController_info,
+              keyboardType: TextInputType.number,
               decoration: const InputDecoration.collapsed(
                 hintText: "type init capital",
               ),
@@ -248,6 +253,7 @@ class Budget extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.budgetController_trade,
+              keyboardType: TextInputType.number,
               decoration: const InputDecoration.collapsed(
                 hintText: "bugdet per trade",
               ),
@@ -290,6 +296,7 @@ class Leverage extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.leverageController_trade,
+              keyboardType: TextInputType.number,
               decoration: const InputDecoration.collapsed(
                 hintText: "leverage x",
               ),
@@ -332,6 +339,7 @@ class Fee extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller.feeController_trade,
+              keyboardType: TextInputType.number,
               decoration: const InputDecoration.collapsed(
                 hintText: "fee (%)",
               ),
@@ -403,14 +411,14 @@ class AddTradeButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
-          EdgeInsets.all(20),
+          const EdgeInsets.all(20),
         ),
       ),
       onPressed: () => controller.addTrade(),
-      icon: Icon(Icons.add_rounded),
+      icon: const Icon(Icons.add_rounded),
       label: Obx(
         () => Text(
-          "Add #${controller.tradeList.length} Trade",
+          "Add #${controller.tradeList.length + 1} Trade",
           softWrap: false,
           overflow: TextOverflow.ellipsis,
         ),
@@ -428,15 +436,15 @@ class DeleteTradeButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
-          EdgeInsets.all(20),
+          const EdgeInsets.all(20),
         ),
         backgroundColor: MaterialStateProperty.all(
           Colors.red.shade800,
         ),
       ),
       onPressed: () => controller.removeTrade(),
-      icon: Icon(Icons.delete_forever_rounded),
-      label: Text(
+      icon: const Icon(Icons.delete_forever_rounded),
+      label: const Text(
         "Delete Prev Trade",
         softWrap: false,
         overflow: TextOverflow.ellipsis,

@@ -1,5 +1,8 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:simple_trading_strategy_tester/controller/ads.dart';
 import 'package:simple_trading_strategy_tester/controller/controller.dart';
 
 import 'package:simple_trading_strategy_tester/pages/drawer.dart';
@@ -23,7 +26,10 @@ class HomePage extends StatelessWidget {
           ? const HomePage_Mobile()
           : const HomePage_Desktop(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.setStrategy(),
+        onPressed: () {
+          controller.interstitialAd.show();
+          controller.setStrategy();
+        },
         child: const Icon(Icons.save_rounded),
       ),
     );
@@ -35,7 +41,53 @@ class HomePage_Mobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final TradeController controller = Get.find();
+    return DefaultTabController(
+      length: 3,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: TabBarView(
+                children: <Widget>[
+                  Column(
+                    children: const <Widget>[
+                      Expanded(child: TradePage()),
+                      Divider(
+                        height: 24,
+                        color: Colors.grey,
+                      ),
+                      Expanded(child: HistoryPage()),
+                    ],
+                  ),
+                  const PerformancePage(),
+                  const IndicatorPage(),
+                ],
+              ),
+            ),
+          ),
+          ADS(ad: controller.listBanner),
+          const TabBar(
+            tabs: [
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(Icons.candlestick_chart_rounded),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(Icons.show_chart_rounded),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(Icons.bar_chart_rounded),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -44,7 +96,6 @@ class HomePage_Desktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TradeController controller = Get.put(TradeController());
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
@@ -58,7 +109,6 @@ class HomePage_Desktop extends StatelessWidget {
             flex: 1,
             child: Column(
               children: <Widget>[
-                // Obx(() => Text(controller.tradeList.value.toString())),
                 Expanded(
                   flex: 3,
                   child: Row(
@@ -70,7 +120,7 @@ class HomePage_Desktop extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   height: 24,
                   thickness: 2,
                   color: Colors.grey,

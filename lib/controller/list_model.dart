@@ -1,12 +1,7 @@
 import 'dart:convert';
 
 class StrategyListModel {
-  String strategyTitle,
-      duration,
-      // startDate, endDate,
-      timeframe,
-      // currency,
-      tradingPair;
+  String strategyTitle, duration, timeframe, tradingPair;
   double initCap, gain, winrate;
   List<IndicatorListModel> indicator;
   List<TradingListModel> trade;
@@ -14,12 +9,9 @@ class StrategyListModel {
   StrategyListModel({
     required this.strategyTitle,
     required this.duration,
-    // required this.startDate,
-    // required this.endDate,
     required this.initCap,
     required this.gain,
     required this.winrate,
-    // required this.currency,
     required this.tradingPair,
     required this.timeframe,
     required this.indicator,
@@ -29,12 +21,9 @@ class StrategyListModel {
   factory StrategyListModel.fromJson(Map json) => StrategyListModel(
         strategyTitle: json['strategyTitle'],
         duration: json['duration'],
-        // startDate: json['startDate'],
-        // endDate: json['endDate'],
         initCap: json['initCap'],
         gain: json['gain'],
         winrate: json['winrate'],
-        // currency: json['currency'],
         timeframe: json['timeframe'],
         tradingPair: json['tradingPair'],
         indicator: List<IndicatorListModel>.from(
@@ -52,12 +41,9 @@ class StrategyListModel {
   Map toJson() => {
         'strategyTitle': strategyTitle,
         'duration': duration,
-        // 'startDate': startDate,
-        // 'endDate': endDate,
         'initCap': initCap,
         'gain': gain,
         'winrate': winrate,
-        // 'currency': currency,
         'timeframe': timeframe,
         'tradingPair': tradingPair,
         'indicator': jsonEncode(indicator.toList()),

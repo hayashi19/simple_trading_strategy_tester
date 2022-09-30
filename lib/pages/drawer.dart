@@ -10,31 +10,57 @@ class DrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.25,
-      child: Drawer(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 10,
-            top: 16,
-            right: 10,
-            bottom: 16,
-          ),
-          child: Column(
-            children: const <Widget>[
-              Text(
-                "List of Strategy",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+    return GetPlatform.isDesktop
+        ? SizedBox(
+            width: MediaQuery.of(context).size.width * 0.25,
+            child: Drawer(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 10,
+                  top: 16,
+                  right: 10,
+                  bottom: 16,
+                ),
+                child: Column(
+                  children: const <Widget>[
+                    Text(
+                      "List of Strategy",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(child: StrategyList()),
+                  ],
                 ),
               ),
-              Expanded(child: StrategyList()),
-            ],
-          ),
-        ),
-      ),
-    );
+            ),
+          )
+        : SizedBox(
+            width: MediaQuery.of(context).size.width * 0.8,
+            child: Drawer(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 10,
+                  top: 32,
+                  right: 10,
+                  bottom: 16,
+                ),
+                child: Column(
+                  children: const <Widget>[
+                    Text(
+                      "List of Strategy",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(child: StrategyList()),
+                  ],
+                ),
+              ),
+            ),
+          );
   }
 }
 
@@ -47,7 +73,7 @@ class StrategyList extends StatelessWidget {
     return Obx(
       () {
         return controller.strategyList.isEmpty
-            ? Center(
+            ? const Center(
                 child: Text(
                   "No strategy yet",
                 ),
@@ -83,7 +109,7 @@ class StrategyList_Detail extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.grey.shade800,
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -149,7 +175,7 @@ class StrategyList_Detail_Ttitle extends StatelessWidget {
     final TradeController controller = Get.find();
     return Obx(
       () => Text(
-        controller.strategyList[index].strategyTitle.contains("")
+        controller.strategyList[index].strategyTitle.isEmpty
             ? "Title ${index + 1}"
             : controller.strategyList[index].strategyTitle.toString(),
         softWrap: false,
@@ -206,10 +232,10 @@ class StrategyList_Detail_Winrate extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.end,
               style: controller.strategyList[index].winrate >= 0
-                  ? TextStyle(
+                  ? const TextStyle(
                       color: Colors.greenAccent,
                     )
-                  : TextStyle(
+                  : const TextStyle(
                       color: Colors.redAccent,
                     ),
             ),
@@ -220,10 +246,10 @@ class StrategyList_Detail_Winrate extends StatelessWidget {
           "%",
           softWrap: false,
           style: controller.strategyList[index].winrate >= 0
-              ? TextStyle(
+              ? const TextStyle(
                   color: Colors.greenAccent,
                 )
-              : TextStyle(
+              : const TextStyle(
                   color: Colors.redAccent,
                 ),
         ),
@@ -246,14 +272,14 @@ class StrategyList_Detail_Gain extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: Colors.grey.shade700,
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Obx(
             () => controller.strategyList[index].gain >= 0
-                ? Icon(
+                ? const Icon(
                     Icons.arrow_drop_up_rounded,
                     size: 20,
                     color: Colors.greenAccent,
@@ -274,10 +300,10 @@ class StrategyList_Detail_Gain extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.end,
                 style: controller.strategyList[index].gain >= 0
-                    ? TextStyle(
+                    ? const TextStyle(
                         color: Colors.greenAccent,
                       )
-                    : TextStyle(
+                    : const TextStyle(
                         color: Colors.redAccent,
                       ),
               ),
@@ -288,10 +314,10 @@ class StrategyList_Detail_Gain extends StatelessWidget {
             "%",
             softWrap: false,
             style: controller.strategyList[index].gain >= 0
-                ? TextStyle(
+                ? const TextStyle(
                     color: Colors.greenAccent,
                   )
-                : TextStyle(
+                : const TextStyle(
                     color: Colors.redAccent,
                   ),
           ),
