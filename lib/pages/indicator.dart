@@ -6,7 +6,7 @@ import 'package:simple_trading_strategy_tester/widgets/c_listview.dart';
 import 'package:simple_trading_strategy_tester/widgets/c_textfield.dart';
 
 class IndicatorPage extends StatelessWidget {
-  const IndicatorPage({Key? key}) : super(key: key);
+  const IndicatorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class IndicatorPage extends StatelessWidget {
 }
 
 class IndicatorTitleTextfield extends StatelessWidget {
-  const IndicatorTitleTextfield({Key? key}) : super(key: key);
+  const IndicatorTitleTextfield({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class IndicatorTitleTextfield extends StatelessWidget {
 }
 
 class IndicatorDescTextfield extends StatelessWidget {
-  const IndicatorDescTextfield({Key? key}) : super(key: key);
+  const IndicatorDescTextfield({super.key});
 
   @override
   Widget build(BuildContext context) {

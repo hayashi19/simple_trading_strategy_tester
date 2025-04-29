@@ -12,8 +12,8 @@ import 'package:simple_trading_strategy_tester/pages/trade.dart';
 import 'package:simple_trading_strategy_tester/widgets/c_ads.dart';
 import 'package:simple_trading_strategy_tester/widgets/c_textfield.dart';
 
-class HomePage_Mobile extends StatelessWidget {
-  const HomePage_Mobile({Key? key}) : super(key: key);
+class HomePageMobile extends StatelessWidget {
+  const HomePageMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,10 @@ class HomePage_Mobile extends StatelessWidget {
                   controller.tradeController.setStrategy();
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
                   child: const Icon(Icons.save_rounded),
                 ),
               ),

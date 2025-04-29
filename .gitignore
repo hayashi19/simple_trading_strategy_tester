@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -22,17 +24,21 @@ migrate_working_dir/
 #.vscode/
 
 # Flutter/Dart/Pub related
+**/ios/Runner/GoogleService-Info.plist
+**/android/app/google-service.json
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.vs/
+.vscode/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
 .pub-cache/
+.metadata
 .pub/
 /build/
-
-# Web related
+pubspec.lock
 
 # Symbolication related
 app.*.symbols
@@ -44,3 +50,43 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android Gradle related
+/android/.gradle/
+/android/app/.cxx/
+/android/local.properties
+/android/key.properties
+/android/app/keystore.jks
+/android/app/upload_certificate.pem
+
+# Android Studio specific files
+/android/.idea/
+/android/*.iml
+/android/.DS_Store
+/android/captures/
+
+# Gradle build output
+/android/build/
+/android/app/build/
+
+# Keystore files (redundant but good to be explicit)
+*.jks
+*.pem
+
+# Other generated files or directories (add as needed)
+/android/app/generated/
+
+# Flutter example folder platforms
+/macos/
+/windows/
+/web/
+/linux/
+/build/
+/test/
+
+# iOS CocoaPods related
+/ios/Pods/
+/ios/.symlinks/
+/ios/.flutter-plugins/
+/ios/.flutter-plugins-dependencies/
+/ios/Podfile.lock

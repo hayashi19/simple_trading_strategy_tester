@@ -1,7 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, invalid_use_of_protected_member, deprecated_member_use, unrelated_type_equality_checks, no_leading_underscores_for_local_identifiers
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -623,7 +621,8 @@ class TradingIndicator extends GetxController {
 
 class AdsController extends GetxController {
   final BannerAd listBanner = BannerAd(
-    adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+    adUnitId: 'ca-app-pub-3089671223759195/4961080159',
+    // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
     size: AdSize.banner,
     request: const AdRequest(),
     listener: const BannerAdListener(),
@@ -635,7 +634,8 @@ class AdsController extends GetxController {
   Future loadInterstitialAd() async {
     try {
       InterstitialAd.load(
-        adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+        adUnitId: 'ca-app-pub-3089671223759195/5891018440',
+        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (ad) {
@@ -726,10 +726,10 @@ class TradeController extends GetxController {
 
   Future<void> getSavedStrategy() async {
     try {
-      List? storedPw = GetStorage().read<List>('strategies');
-      if (!storedPw.isNull) {
+      List storedPw = GetStorage().read<List>('strategies') ?? [];
+      if (storedPw.isNotEmpty) {
         strategyList.value =
-            storedPw!.map((e) => StrategyListModel.fromJson(e)).toList();
+            storedPw.map((e) => StrategyListModel.fromJson(e)).toList();
       }
 
       debugPrint("Get saved strategy ${strategyList.length}");

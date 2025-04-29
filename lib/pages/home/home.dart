@@ -8,18 +8,18 @@ import 'package:simple_trading_strategy_tester/pages/home/home_notSupportedDevic
 import 'package:simple_trading_strategy_tester/pages/home/home_web.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     if (GetPlatform.isMobile) {
-      return const HomePage_Mobile();
+      return const HomePageMobile();
     } else if (GetPlatform.isWeb) {
-      return const HomePage_Web();
+      return const HomePageWeb();
     } else if (GetPlatform.isDesktop) {
-      return const HomePage_Desktop();
+      return const HomePageDesktop();
     } else {
-      return const NotSupported_Page();
+      return const NotSupportedPage();
     }
   }
 }

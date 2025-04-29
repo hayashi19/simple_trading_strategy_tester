@@ -70,7 +70,7 @@ import 'package:simple_trading_strategy_tester/widgets/c_button.dart';
 // }
 
 class DrawerPage extends StatelessWidget {
-  const DrawerPage({Key? key}) : super(key: key);
+  const DrawerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class DrawerPage extends StatelessWidget {
 }
 
 class DrawerCHeader extends StatelessWidget {
-  const DrawerCHeader({Key? key}) : super(key: key);
+  const DrawerCHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class DrawerCHeader extends StatelessWidget {
 }
 
 class StrategyList extends StatelessWidget {
-  const StrategyList({Key? key}) : super(key: key);
+  const StrategyList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -155,9 +155,9 @@ class StrategyList extends StatelessWidget {
 class StrategyList_Detail extends StatelessWidget {
   int index;
   StrategyList_Detail({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -204,9 +204,9 @@ class StrategyList_Detail extends StatelessWidget {
 class StrategyList_Detail_Leading extends StatelessWidget {
   int index;
   StrategyList_Detail_Leading({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -224,9 +224,9 @@ class StrategyList_Detail_Leading extends StatelessWidget {
 class StrategyList_Detail_Ttitle extends StatelessWidget {
   int index;
   StrategyList_Detail_Ttitle({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -247,9 +247,9 @@ class StrategyList_Detail_Ttitle extends StatelessWidget {
 class StrategyList_Detail_Duration extends StatelessWidget {
   int index;
   StrategyList_Detail_Duration({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -271,9 +271,9 @@ class StrategyList_Detail_Duration extends StatelessWidget {
 class StrategyList_Detail_Winrate extends StatelessWidget {
   int index;
   StrategyList_Detail_Winrate({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -319,9 +319,9 @@ class StrategyList_Detail_Winrate extends StatelessWidget {
 class StrategyList_Detail_Gain extends StatelessWidget {
   int index;
   StrategyList_Detail_Gain({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -386,7 +386,7 @@ class StrategyList_Detail_Gain extends StatelessWidget {
 }
 
 class CloseDrawer extends StatelessWidget {
-  const CloseDrawer({Key? key}) : super(key: key);
+  const CloseDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class NotSupported_Page extends StatelessWidget {
-  const NotSupported_Page({Key? key}) : super(key: key);
+class NotSupportedPage extends StatelessWidget {
+  const NotSupportedPage({super.key});
 
   @override
   Widget build(BuildContext context) {

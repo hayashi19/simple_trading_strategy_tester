@@ -8,12 +8,11 @@ import 'package:simple_trading_strategy_tester/controller/controller.dart';
 
 class PerformancePage extends StatelessWidget {
   const PerformancePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final AppController controller = Get.put(AppController());
     return ListView(
       controller: ScrollController(),
       padding: EdgeInsets.only(
@@ -53,8 +52,8 @@ class PerformancePage extends StatelessWidget {
 
 class PerformancePage_FinalCap extends StatelessWidget {
   const PerformancePage_FinalCap({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +165,8 @@ class PerformancePage_FinalCap extends StatelessWidget {
 
 class PerformancePage_OHLC extends StatelessWidget {
   const PerformancePage_OHLC({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -281,8 +280,8 @@ class PerformancePage_OHLC extends StatelessWidget {
 
 class PerformancePage_CapitalCurve extends StatelessWidget {
   const PerformancePage_CapitalCurve({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -309,8 +308,8 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
               () => controller.tradeController.tradeList.isNotEmpty
                   ? Obx(
                       () => LineChart(
-                        swapAnimationDuration:
-                            const Duration(milliseconds: 500),
+                        // swapAnimationDuration:
+                        //     const Duration(milliseconds: 500),
                         LineChartData(
                           minX: 0,
                           maxX: controller.tradeController.tradeList.length
@@ -391,8 +390,8 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
 
 class PerformancePage_ProfitLoss extends StatelessWidget {
   const PerformancePage_ProfitLoss({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -522,8 +521,8 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
 
 class PerformancePage_Winrate extends StatelessWidget {
   const PerformancePage_Winrate({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -667,7 +666,7 @@ class PerformancePage_Winrate extends StatelessWidget {
 }
 
 class PerformanceTrade_Factor extends StatelessWidget {
-  const PerformanceTrade_Factor({Key? key}) : super(key: key);
+  const PerformanceTrade_Factor({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -963,7 +962,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
 }
 
 class PerformancePage_Max extends StatelessWidget {
-  const PerformancePage_Max({Key? key}) : super(key: key);
+  const PerformancePage_Max({super.key});
 
   @override
   Widget build(BuildContext context) {

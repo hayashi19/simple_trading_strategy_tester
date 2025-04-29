@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:simple_trading_strategy_tester/controller/controller.dart';
 
 class TradeHistoryListview extends StatelessWidget {
-  TradeHistoryListview({Key? key}) : super(key: key);
+  const TradeHistoryListview({super.key});
   @override
   Widget build(BuildContext context) {
     final AppController controller = Get.put(AppController());
@@ -226,7 +226,7 @@ class TradeHistoryListview extends StatelessWidget {
 }
 
 class IndicatorListview extends StatelessWidget {
-  const IndicatorListview({Key? key}) : super(key: key);
+  const IndicatorListview({super.key});
 
   @override
   Widget build(BuildContext context) {

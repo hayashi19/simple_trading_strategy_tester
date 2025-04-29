@@ -14,7 +14,7 @@ class RegularTextfield extends StatelessWidget {
   final Function? onEditingComplete;
 
   RegularTextfield({
-    Key? key,
+    super.key,
     required this.hint,
     required this.inputType,
     this.minLine,
@@ -24,7 +24,7 @@ class RegularTextfield extends StatelessWidget {
     required this.textController,
     required this.onChangeValue,
     this.onEditingComplete,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class AppbarTextfield extends StatelessWidget {
   Function(String) onChangeValue;
 
   AppbarTextfield({
-    Key? key,
+    super.key,
     required this.hint,
     required this.inputType,
     this.minLine,
@@ -77,7 +77,7 @@ class AppbarTextfield extends StatelessWidget {
     required this.textFocusOnChange,
     required this.textController,
     required this.onChangeValue,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

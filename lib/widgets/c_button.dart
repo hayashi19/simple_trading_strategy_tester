@@ -7,11 +7,11 @@ class RegularFlatButton extends StatelessWidget {
   Color bgColor;
   Function onTap;
   RegularFlatButton({
-    Key? key,
+    super.key,
     required this.title,
     required this.bgColor,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

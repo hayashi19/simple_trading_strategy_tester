@@ -1,16 +1,30 @@
-# simple_trading_strategy_tester
+<img src="editor/images/logo.png" width="64">
 
-A new Flutter project.
+# Simple Trading Strategy Tester
 
-## Getting Started
+This application is used to store the performance of a trading strategy, by storing trading data that has been done.
+Users can store trading data by entering data such as profit per trade.
 
-This project is a starting point for a Flutter application.
+<img src="editor/images/ss1.png" width="144">
+<img src="editor/images/ss2.png" width="144">
+<img src="editor/images/ss3.png" width="144">
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Store trading data
+- Delete trading data
+- Display trading data
+- Calculate trading performance
+    - Final Capital
+    - Gain Percentage
+    - Capital Curve
+    - Gross Profit
+    - Total Fee 
+    - Net Profit
+    - Win Rate
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Download
+
+Via Release Page: 
+
+Via Play Store: 

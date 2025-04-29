@@ -9,7 +9,7 @@ import 'package:simple_trading_strategy_tester/widgets/c_listview.dart';
 import 'package:simple_trading_strategy_tester/widgets/c_textfield.dart';
 
 class TradePage extends StatelessWidget {
-  const TradePage({Key? key}) : super(key: key);
+  const TradePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class TradePage extends StatelessWidget {
 }
 
 class TradingInfo extends StatelessWidget {
-  const TradingInfo({Key? key}) : super(key: key);
+  const TradingInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +115,7 @@ class TradingInfo extends StatelessWidget {
 }
 
 class InitialCap extends StatelessWidget {
-  const InitialCap({Key? key}) : super(key: key);
+  const InitialCap({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +139,7 @@ class InitialCap extends StatelessWidget {
 }
 
 class TradingSetting extends StatelessWidget {
-  const TradingSetting({Key? key}) : super(key: key);
+  const TradingSetting({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +208,7 @@ class TradingSetting extends StatelessWidget {
 }
 
 class TradingInput extends StatelessWidget {
-  const TradingInput({Key? key}) : super(key: key);
+  const TradingInput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -259,11 +259,10 @@ class TradingInput extends StatelessWidget {
 }
 
 class TradeHistory extends StatelessWidget {
-  const TradeHistory({Key? key}) : super(key: key);
+  const TradeHistory({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final AppController controller = Get.put(AppController());
     return Column(
       children: <Widget>[
         const Text("Trade History"),
