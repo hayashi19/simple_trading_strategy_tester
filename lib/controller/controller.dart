@@ -621,8 +621,7 @@ class TradingIndicator extends GetxController {
 
 class AdsController extends GetxController {
   final BannerAd listBanner = BannerAd(
-    adUnitId: 'ca-app-pub-3089671223759195/4961080159',
-    // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+    adUnitId: 'ca-app-pub-3940256099942544/6300978111',
     size: AdSize.banner,
     request: const AdRequest(),
     listener: const BannerAdListener(),
@@ -634,8 +633,7 @@ class AdsController extends GetxController {
   Future loadInterstitialAd() async {
     try {
       InterstitialAd.load(
-        adUnitId: 'ca-app-pub-3089671223759195/5891018440',
-        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+        adUnitId: 'ca-app-pub-3940256099942544/1033173712',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (ad) {
@@ -664,43 +662,6 @@ class AdsController extends GetxController {
       printError(info: e.toString());
     }
   }
-
-  // Future loadInterstitialAd() async {
-  //   try {
-  //     InterstitialAd.load(
-  //       adUnitId: 'ca-app-pub-3940256099942544/8691691433',
-  //       request: const AdRequest(),
-  //       adLoadCallback: InterstitialAdLoadCallback(
-  //         onAdLoaded: (InterstitialAd ad) {
-  //           // Keep a reference to the ad so you can show it later.
-  //           interstitialAd = ad;
-  //           adIsLoaded.value = true;
-  //           printInfo(
-  //               info: "ADS LOADED ADS LOADED ADS LOADED ADS LOADED ADS LOADED");
-  //           interstitialAd.fullScreenContentCallback =
-  //               FullScreenContentCallback(
-  //             onAdDismissedFullScreenContent: (ad) {
-  //               adIsLoaded.value = false;
-  //               interstitialAd.dispose();
-  //               Get.back();
-  //               // loadInterstitialAd();d
-  //             },
-  //             onAdFailedToShowFullScreenContent: (ad, error) {
-  //               adIsLoaded.value = false;
-  //               interstitialAd.dispose();
-  //               Get.back();
-  //             },
-  //           );
-  //         },
-  //         onAdFailedToLoad: (LoadAdError error) {
-  //           printError(info: 'InterstitialAd failed to load: $error');
-  //         },
-  //       ),
-  //     );
-  //   } catch (e) {
-  //     debugPrint(e.toString());
-  //   }
-  // }
 }
 
 class TradeController extends GetxController {
